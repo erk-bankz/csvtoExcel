@@ -44,6 +44,11 @@ def convert_to_csv(file: str, delimiter):
     #xlsx.dropna(how='all', axis='columns')
     xlsx.to_csv(str(new_csv),encoding="utf-8",sep=delimiter, index= False)
 
-# def set_delimiters(file:str):
-
+def convert_to_csv_two(file,delimit):
+    wb = openpyxl.load_workbook(file)
+    sh = wb.active
+    with open(file+".csv", 'w', newline="") as f:
+        col = csv.writer(f, delimiter=delimit)
+        for row in sh.rows:
+            col.writerow([cell.value for cell in row])
 
