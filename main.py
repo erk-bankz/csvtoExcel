@@ -62,7 +62,7 @@ class Dialog(QDialog, Ui_Dialog):
                     if self.radioButton_5.isChecked():
                         delimiter = ";"
                     for file in files:
-                        modules.convert_to_csv(str(file), delimiter)
+                        modules.convert_to_csv_two(str(file), delimiter)
                 QtWidgets.QMessageBox.information(self, "Macro finished", "Files has finished processing")
             except:
                 e= sys.exc_info()
