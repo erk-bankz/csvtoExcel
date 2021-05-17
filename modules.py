@@ -12,6 +12,9 @@ from PyQt5 import QtWidgets
 
 from ui_main_dialog import Ui_Dialog
 
+import openpyxl
+import csv
+
 
 def read_csv(file: str, encoding: str='utf-8-sig') -> list:
     """
@@ -44,6 +47,9 @@ def convert_to_csv(file: str, delimiter):
     #xlsx.dropna(how='all', axis='columns')
     xlsx.to_csv(str(new_csv),encoding="utf-8",sep=delimiter, index= False)
 
+# def set_delimiters(file:str):
+
+
 def convert_to_csv_two(file,delimit):
     wb = openpyxl.load_workbook(file)
     sh = wb.active
@@ -52,3 +58,5 @@ def convert_to_csv_two(file,delimit):
         for row in sh.rows:
             col.writerow([cell.value for cell in row])
 
+# file = r"c:\Users\ehom\Documents\IdeaProjects\Python\Projects\csvToExcel\sample\Excel\ATT_COW_0003405530.CSV.xlsx"
+# convert_to_csv_two(file)

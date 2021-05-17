@@ -54,15 +54,15 @@ class Dialog(QDialog, Ui_Dialog):
                 if self.radioButton_2.isChecked():
                     files = []
                     files = [file for file in pp.glob('**/*.*') if file.suffix.lower() == ".xlsx"]
-                    delimiter = ","
+                    delimit = ","
                     if self.radioButton_3.isChecked():
-                        delimiter = "\t"
+                        delimit = "\t"
                     if self.radioButton_4.isChecked():
-                        delimiter = "|"
+                        delimit = "|"
                     if self.radioButton_5.isChecked():
-                        delimiter = ";"
+                        delimit = ";"
                     for file in files:
-                        modules.convert_to_csv_two(str(file), delimiter)
+                        modules.convert_to_csv_two(str(file), delimit)
                 QtWidgets.QMessageBox.information(self, "Macro finished", "Files has finished processing")
             except:
                 e= sys.exc_info()
